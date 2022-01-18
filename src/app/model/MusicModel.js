@@ -10,7 +10,8 @@ const Song = new Schema(
         albumArtist: String,
         year: Number,
         singer: String,
-        path: { type: String, required: true },
+        pathmp3: { type: String, required: true },
+        pathimage: { type: String, required: true },
     },
     {
         timestamps: true,

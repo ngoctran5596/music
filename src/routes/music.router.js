@@ -7,6 +7,8 @@ const upload = require('../config/upload')
 
 routes.get('/', musicControllers.index)
 routes.get('/music', musicControllers.getMusic)
-routes.post('/postmusic', upload.single('testmp3'), musicControllers.musicPost)
+routes.get('/createmusic', musicControllers.create)
+// routes.post('/postmusic', upload.single('filemp3'), musicControllers.musicPost)
+routes.post('/multiple-upload', upload.array("many-files", 17), musicControllers.musicPost)
 
 module.exports = routes
