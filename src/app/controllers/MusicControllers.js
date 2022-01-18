@@ -13,7 +13,6 @@ class MusicControllers {
 
     async getMusic(req, res, next) {
         const song = await Song.find();
-        console.log(song)
         res.render('home', { songs: mutipleMongooseToObject(song) });
 
     }
@@ -30,8 +29,6 @@ class MusicControllers {
                     pathmp3 = process.env.MUSIC_URL + arr[i].filename
                 }
             }
-            console.log('pathimage', pathimage, pathmp3)
-
             const { title, album, albumArtist, year, singer } = req.body;
 
             const songNew = new Song({
@@ -44,7 +41,7 @@ class MusicControllers {
                 pathmp3
             });
             songNew.save()
-                .then((data) => res.redirect('/music'))
+                .then((data) => res.redirect('/'))
                 .catch((err) => {
                     res.json(err);
                 })
@@ -53,31 +50,7 @@ class MusicControllers {
         }
     }
 
-    // musicPost(req, res, next) {
-    //     console.log(process.env.MUSIC_URL)
-
-    //     const { title, album, albumArtist, year, singer } = req.body;
-
-    //     if (req.file) {
-    //         const path = process.env.MUSIC_URL + req.file.filename;
-
-    //         const songNew = new Song({
-    //             title,
-    //             album,
-    //             albumArtist,
-    //             year,
-    //             singer,
-    //             path,
-    //         });
-    //         songNew.save()
-    //             .then((data) => res.render('home'))
-    //             .catch((err) => {
-    //                 res.json(err);
-    //             })
-    //     } else {
-    //         res.json('không bài hát')
-    //     }
-    // }
+    
 }
 
 module.exports = new MusicControllers();
