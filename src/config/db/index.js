@@ -1,7 +1,5 @@
 
 const mongoose = require ('mongoose');
-const MongoClient = require('mongodb').MongoClient
-const myurl = 'mongodb+srv://admin:ngocson@cluster0.kl4qe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 
 async function connect () {
