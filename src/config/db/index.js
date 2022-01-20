@@ -7,7 +7,7 @@ async function connect () {
      //mongodb://localhost:27017/duantotnghiep_dev cua compas duoi la cua atlas
      //cũ mongodb+srv://admin:nhom3qnqsh@cluster0.utcng.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
      //mới mongodb+srv://123:duantotnghiep@cluster0.ln0fs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-    await mongoose.connect ("mongodb+srv://admin:ngocson@cluster0.kl4qe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { });
+    await mongoose.connect ("mongodb+srv://admin:ngocson@cluster0.kl4qe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useUnifiedTopology: true});
     console.log('Connect successfuly!');
   } catch (error) {
     console.log(error)
